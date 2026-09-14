@@ -1,0 +1,19 @@
+{
+  "name": "demon-kitty-official",
+  "version": "1.0.0",
+  "description": "Demon Kitty — Financial dominatrix and humiliation specialist",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "demon-kitty",
+    "findom",
+    "femdom",
+    "luxury-portfolio"
+  ],
+  "author": "Demon Kitty",
+  "license": "UNLICENSED",
+  "private": true
+}
