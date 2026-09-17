@@ -1,0 +1,119 @@
+.manifesto {
+  grid-template-columns: minmax(0, .86fr) minmax(360px, 1.14fr);
+  gap: clamp(64px, 12vw, 180px);
+  padding-top: clamp(110px, 14vw, 220px);
+  padding-bottom: clamp(110px, 14vw, 220px);
+}
+
+.manifesto__body {
+  max-width: 620px;
+}
+
+.manifesto__body > p:not(.eyebrow) {
+  max-width: 480px;
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+}
+
+.manifesto__gallery {
+  min-width: 0;
+}
+
+.manifesto__frame {
+  margin: 0;
+}
+
+.manifesto__image {
+  width: 100%;
+  height: clamp(520px, 52vw, 780px);
+  object-position: center;
+  box-shadow: 0 28px 80px rgba(25, 12, 22, .2);
+  transition: opacity 240ms var(--ease), transform 600ms var(--ease);
+}
+
+.manifesto__image.is-changing {
+  opacity: .18;
+  transform: scale(.985);
+}
+
+.manifesto__frame figcaption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 16px;
+  color: var(--pink-dark);
+  font-size: .68rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.manifesto__controls {
+  display: flex;
+  gap: 8px;
+}
+
+.manifesto__controls button {
+  width: 10px;
+  min-width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 1px solid var(--pink-dark);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--pink-dark);
+  font-size: 0;
+  transition: color var(--fast) var(--ease), border-color var(--fast) var(--ease), transform var(--fast) var(--ease);
+}
+
+.manifesto__controls button:hover,
+.manifesto__controls button.is-active {
+  color: var(--ink);
+  border-color: var(--ink);
+  background: var(--ink);
+}
+
+.manifesto__controls button:active {
+  transform: scale(.97);
+}
+
+@media (max-width: 850px) {
+  .manifesto {
+    grid-template-columns: 1fr;
+    gap: 64px;
+    padding-top: clamp(88px, 18vw, 140px);
+    padding-bottom: clamp(88px, 18vw, 140px);
+  }
+
+  .manifesto__body {
+    max-width: 680px;
+  }
+
+  .manifesto__image {
+    height: min(128vw, 780px);
+  }
+}
+
+@media (max-width: 520px) {
+  .manifesto {
+    gap: 46px;
+  }
+
+  .manifesto__image {
+    height: 118vw;
+    min-height: 430px;
+    max-height: 620px;
+  }
+
+  .manifesto__frame figcaption {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .manifesto__image,
+  .manifesto__controls button {
+    transition: none;
+  }
+}

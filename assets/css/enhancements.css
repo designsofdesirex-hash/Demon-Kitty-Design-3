@@ -5,3 +5,220 @@
 .hero__portrait-frame img,.manifesto__image{transition:opacity 420ms var(--ease)}.is-cycling-out{opacity:0}
 @media(max-width:850px){.signature{grid-template-columns:1fr;gap:42px}.signature__image{height:100vw;max-height:580px}.footer{grid-template-columns:1fr 1fr;align-items:end}.footer__visual{grid-row:span 2;height:180px}.footer>small{grid-column:2}}
 @media(max-width:520px){.footer{grid-template-columns:1fr}.footer__visual{grid-row:auto;height:170px}.footer>small{grid-column:auto}}
+
+/* Deep background world: one quiet portrait texture, several atmospheric layers. */
+body {
+  background-color: var(--ink);
+  background-image:
+    radial-gradient(ellipse at 50% 50%, rgba(10, 4, 9, .96) 0%, rgba(25, 12, 22, .82) 52%, rgba(25, 12, 22, .58) 100%),
+    radial-gradient(ellipse at 12% 8%, rgba(255, 79, 163, .22), transparent 28%),
+    radial-gradient(ellipse at 88% 44%, rgba(122, 36, 90, .28), transparent 34%),
+    radial-gradient(ellipse at 34% 96%, rgba(255, 209, 231, .1), transparent 26%),
+    url('../media/demon-kitty-profile.jpg');
+  background-attachment: fixed;
+  background-position: center, 12% 8%, 88% 44%, 34% 96%, center;
+  background-size: cover, 130% 130%, 120% 120%, 110% 110%, cover;
+  background-blend-mode: multiply, screen, screen, screen, normal;
+}
+
+body::before {
+  background:
+    radial-gradient(ellipse at 74% 16%, rgba(255, 79, 163, .18), transparent 24%),
+    radial-gradient(ellipse at 18% 70%, rgba(255, 209, 231, .1), transparent 26%),
+    radial-gradient(ellipse at 52% 44%, rgba(255, 79, 163, .06), transparent 48%);
+  opacity: .85;
+}
+
+.hero,
+.links-section,
+.signature {
+  position: relative;
+  isolation: isolate;
+  background-color: rgba(25, 12, 22, .7);
+}
+
+.manifesto {
+  background-color: rgba(255, 209, 231, .82);
+  background-image: radial-gradient(ellipse at 92% 18%, rgba(255, 79, 163, .18), transparent 32%);
+}
+
+.language {
+  background-color: rgba(255, 79, 163, .84);
+  background-image: radial-gradient(ellipse at 8% 82%, rgba(255, 209, 231, .16), transparent 30%);
+}
+
+.links-section::after,
+.hero::after,
+.signature::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 72% 18%, transparent 0 24%, rgba(6, 2, 7, .28) 78%, rgba(6, 2, 7, .5) 100%);
+}
+
+/* Let every major surface carry the same deep, tactile world instead of becoming a flat block. */
+.hero::before,
+.links-section::before,
+.manifesto::after,
+.language::before,
+.footer::before {
+  background-image:
+    radial-gradient(ellipse at 76% 20%, rgba(255, 79, 163, .22), transparent 30%),
+    radial-gradient(ellipse at 18% 78%, rgba(255, 209, 231, .1), transparent 28%),
+    radial-gradient(ellipse at 52% 48%, rgba(8, 3, 8, .76), transparent 52%),
+    radial-gradient(ellipse at 34% 62%, rgba(255, 255, 255, .025), transparent 44%);
+  background-size: 125% 125%, 120% 120%, 100% 100%, auto;
+  background-position: 76% 20%, 18% 78%, center, center;
+  background-blend-mode: screen, screen, multiply, normal;
+  opacity: .7;
+}
+
+.hero::before,
+.links-section::before,
+.signature::after,
+.footer::before {
+  mix-blend-mode: screen;
+}
+
+.manifesto::after,
+.language::before {
+  mix-blend-mode: multiply;
+  opacity: .34;
+}
+
+.hero,
+.links-section,
+.signature,
+.footer {
+  background-image:
+    radial-gradient(ellipse at 50% 50%, rgba(25, 12, 22, .88), rgba(25, 12, 22, .66)),
+    radial-gradient(ellipse at 82% 16%, rgba(255, 79, 163, .16), transparent 30%),
+    radial-gradient(ellipse at 18% 84%, rgba(113, 43, 94, .2), transparent 32%);
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply, screen, screen;
+}
+
+.manifesto {
+  background-image:
+    radial-gradient(ellipse at 50% 50%, rgba(255, 209, 231, .9), rgba(255, 209, 231, .68)),
+    radial-gradient(ellipse at 92% 12%, rgba(226, 45, 131, .2), transparent 34%),
+    radial-gradient(ellipse at 44% 48%, rgba(25, 12, 22, .035), transparent 48%);
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: screen, multiply, normal;
+}
+
+.language {
+  background-image:
+    radial-gradient(ellipse at 50% 50%, rgba(255, 79, 163, .86), rgba(120, 17, 75, .72)),
+    radial-gradient(ellipse at 12% 78%, rgba(255, 209, 231, .18), transparent 30%),
+    radial-gradient(ellipse at 86% 20%, rgba(74, 7, 47, .26), transparent 36%);
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply, screen, multiply;
+}
+
+@media (max-width: 850px) {
+  body {
+    background-attachment: scroll;
+  }
+
+  .hero,
+  .links-section,
+  .manifesto,
+  .language,
+  .signature,
+  .footer {
+    background-attachment: scroll;
+  }
+}
+
+/* Rendered depth pass: atmospheric layers sit above each surface, below its content. */
+body {
+  background-color: #0e060d;
+  background-image:
+    radial-gradient(ellipse at 15% 18%, rgba(108, 25, 79, .78), transparent 32%),
+    radial-gradient(ellipse at 86% 72%, rgba(50, 13, 43, .9), transparent 38%),
+    radial-gradient(ellipse at 50% 50%, #271126 0%, #100710 72%, #0b040b 100%),
+    url('../media/demon-kitty-profile.jpg');
+  background-size: 130% 130%, 120% 120%, cover, cover;
+  background-position: 15% 18%, 86% 72%, center, center;
+  background-blend-mode: screen, multiply, normal, soft-light;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 66% 30%, rgba(255, 79, 163, .12), transparent 34%),
+    radial-gradient(ellipse at 28% 76%, rgba(255, 209, 231, .06), transparent 30%),
+    radial-gradient(ellipse at center, transparent 36%, rgba(4, 1, 5, .58) 100%);
+  mix-blend-mode: screen;
+}
+
+.hero,
+.manifesto,
+.links-section,
+.language,
+.signature,
+.footer {
+  overflow: hidden;
+}
+
+.hero,
+.manifesto,
+.links-section,
+.language,
+.signature {
+  background-color: rgba(25, 12, 22, .54);
+}
+
+.hero::before,
+.links-section::before,
+.manifesto::after,
+.language::before,
+.signature::after,
+.footer::before {
+  z-index: 0;
+  opacity: 1;
+  background-image:
+    radial-gradient(ellipse at 78% 16%, rgba(255, 79, 163, .32), transparent 29%),
+    radial-gradient(ellipse at 12% 86%, rgba(255, 209, 231, .13), transparent 25%),
+    radial-gradient(ellipse at 44% 52%, rgba(111, 29, 84, .16), transparent 42%);
+  background-size: 130% 130%, 120% 120%, 120% 120%;
+  background-position: 78% 16%, 12% 86%, 44% 52%;
+  background-blend-mode: screen, screen, screen;
+  mix-blend-mode: screen;
+}
+
+.manifesto::after {
+  background-image:
+    radial-gradient(ellipse at 86% 14%, rgba(226, 45, 131, .28), transparent 30%),
+    radial-gradient(ellipse at 10% 84%, rgba(255, 255, 255, .18), transparent 26%),
+    radial-gradient(ellipse at 46% 46%, rgba(255, 79, 163, .1), transparent 44%);
+  mix-blend-mode: multiply;
+}
+
+.language::before {
+  background-image:
+    radial-gradient(ellipse at 8% 82%, rgba(255, 209, 231, .3), transparent 31%),
+    radial-gradient(ellipse at 88% 16%, rgba(75, 5, 49, .34), transparent 34%),
+    radial-gradient(ellipse at 48% 48%, rgba(255, 120, 187, .12), transparent 42%);
+  mix-blend-mode: soft-light;
+}
+
+.hero > *,
+.manifesto > *,
+.links-section > *,
+.language > *,
+.signature > *,
+.footer > * {
+  position: relative;
+  z-index: 1;
+}
