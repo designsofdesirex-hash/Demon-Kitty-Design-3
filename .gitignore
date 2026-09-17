@@ -39,3 +39,10 @@ assets/img/*.jpeg
 # Preserve the deployment-safe JPG source backup shipped with this checkout.
 !assets/MISTRESS Arushi 👠💸💖_2026_09_13/*.jpg
 
+# Published Demon Kitty media is referenced directly by the static site.
+!assets/media/
+!assets/media/*.jpg
+!assets/media/*.jpeg
+!assets/media/*.png
+!assets/media/*.webp
+
